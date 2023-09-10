@@ -17,6 +17,7 @@ public class ExaminerServiceImpl implements ExaminerService {
         this.questionService = questionService;
     }
 
+    //get number of questions depending on variable(amount)
     @Override
     public Set<Question> getQuestions(int amount) {
         Set<Question> setOfRandomQuestions = new HashSet<>();
