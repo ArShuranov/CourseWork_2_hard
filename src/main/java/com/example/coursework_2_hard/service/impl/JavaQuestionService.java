@@ -8,11 +8,13 @@ import java.util.*;
 
 @Service
 public class JavaQuestionService implements QuestionService {
+    //storage for questions
     private Set<Question> storage = new HashSet<>(Set.of(new Question("aaa", "aaa"), new Question("ddd", "ddd"),
             new Question("cc", "cc"),
             new Question("sd", "sd")));
 
 
+    //add new question to storage (question(String) + answer(String))
     @Override
     public Question add(String question, String answer) {
         Question tmp = new Question(question, answer);
@@ -23,6 +25,7 @@ public class JavaQuestionService implements QuestionService {
         return tmp;
     }
 
+    //add new question to storage (object Question)
     @Override
     public Question add(Question question) {
         if (storage.contains(question)) {
@@ -32,6 +35,7 @@ public class JavaQuestionService implements QuestionService {
         return question;
     }
 
+    //remove question from storage
     @Override
     public Question remove(Question question) {
         if (!storage.contains(question)) {
@@ -41,11 +45,13 @@ public class JavaQuestionService implements QuestionService {
         return question;
     }
 
+    //get all question
     @Override
     public Collection<Question> getAll() {
         return new ArrayList<>(storage);
     }
 
+    //get random question
     @Override
     public Question getRandomQuestion() {
         Random random = new Random();
